@@ -1,7 +1,7 @@
 This devices plays back the activity of another device as it was recorded by the
 Phy in a previous simulation.
 
-Note: Unlike "ext_2G4_device_playback" it feed from v2 Phy channel activity dumps/traces.
+Note: Unlike "ext_2G4_device_playback" it feeds from v2 Phy channel activity dumps/traces.
 
 It takes as command line arguments:
   -inputf=<inputfile>: Path and begining of the dump files names to be played

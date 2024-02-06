@@ -1,20 +1,21 @@
 /*
  * Copyright 2018 Oticon A/S
+ * Copyright 2024 Nordic Semiconductor ASA
  *
  * SPDX-License-Identifier: Apache-2.0
  */
 #include <stdlib.h>
-#include "bs_playback_args.h"
+#include "bs_playbackv2_args.h"
 #include "bs_tracing.h"
 #include "bs_oswrap.h"
 
-char executable_name[] = "bs_device_2G4_playback";
+char executable_name[] = "bs_device_2G4_playbackv2";
 void component_print_post_help(){
   fprintf(stdout,"This devices plays back the activity of another device as it was recorded by the\n"
           "phy in a previous simulation\n\n");
 }
 
-playback_args_t *args_g;
+playbackv2_args_t *args_g;
 
 static void cmd_trace_lvl_found(char * argv, int offset){
   bs_trace_set_level(args_g->verb);
@@ -28,7 +29,7 @@ static void cmd_gdev_nbr_found(char * argv, int offset){
  * Check the arguments provided in the command line: set args based on it or defaults,
  * and check they are correct
  */
-void bs_playback_argsparse(int argc, char *argv[], playback_args_t *args)
+void bs_playbackv2_argsparse(int argc, char *argv[], playbackv2_args_t *args)
 {
   args_g = args;
   bs_args_struct_t args_struct[] = {
@@ -37,6 +38,7 @@ void bs_playback_argsparse(int argc, char *argv[], playback_args_t *args)
       { false, false , true, "txoff",   "txoff",     'b', (void*)&(args->txoff),   NULL, "Dont send Tx requests"},
       { false, false , true, "rxoff",   "rxoff",     'b', (void*)&(args->rxoff),   NULL, "Dont send Rx requests"},
       { false, false , true, "rssioff", "rssioff",   'b', (void*)&(args->rssioff), NULL, "Dont send RSSI requests"},
+      { false, false , true, "ccaoff",  "ccaoff",   'b', (void*)&(args->ccaoff), NULL, "Dont send CCA requests"},
       ARG_TABLE_ENDMARKER
   };
 

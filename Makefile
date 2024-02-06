@@ -7,8 +7,8 @@ include ${BSIM_BASE_PATH}/common/pre.make.inc
 2G4_libPhyComv1_COMP_PATH?=$(abspath ${BSIM_COMPONENTS_PATH}/ext_2G4_libPhyComv1)
 
 EXE_NAME:=bs_device_2G4_playbackv2
-SRCS:=src/bs_playback_main.c \
-      src/bs_playback_args.c
+SRCS:=src/bs_playbackv2_main.c \
+      src/bs_playbackv2_args.c
 
 A_LIBS:=${BSIM_LIBS_DIR}/libUtilv1.a \
         ${BSIM_LIBS_DIR}/libPhyComv1.a \
