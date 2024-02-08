@@ -128,7 +128,7 @@ void read_next_tx(){
 
     if (read < 12) {
       if ((read > 0) || !feof(tx_f)) { //otherwise it was probably an empty trailing line
-        bs_trace_warning_line("Corrupted input Tx file disabling it\n");
+        bs_trace_warning_line("Corrupted input Tx file disabling it (%i)\n", read);
       } else {
         bs_trace_raw(3,"Reached end of Tx file\n");
       }
